@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scene/Cloth Simulation.unity
+  isLoaded: 1
+  isActive: 1
