@@ -12,7 +12,7 @@ public class Force : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        triggred = true;
+        triggred = false;
         gravity = new Vector3(0,-9f,0);
         particlList = GetComponent<ObjectSpawner>().group;
     }
@@ -23,8 +23,6 @@ public class Force : MonoBehaviour
         if (triggred)
             foreach (GameObject p1 in particlList)
                 p1.GetComponent<Particle>().force = p1.GetComponent<Particle>().mass * gravity;
-
-
 
     }
 }
