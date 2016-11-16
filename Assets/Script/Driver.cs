@@ -51,7 +51,7 @@ public class Driver : MonoBehaviour
             if (i % width != 0 && i < tracker - width)
                 spring.Add(new SpringDamper(particalList[i], particalList[i + width - 1]));
         }
-        particalList[width].ankred = false;
+        particalList[width - 1 ].ankred = false;
         particalList[tracker - 1].ankred = false;
     }
 

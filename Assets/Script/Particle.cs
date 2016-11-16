@@ -34,7 +34,7 @@ public class Particle
     public void Update() {
       
             acceleration = (1 / mass) * force;
-            velocity += acceleration ;
+            velocity += acceleration * Time.deltaTime ;
             position += velocity * Time.deltaTime;
         
     }
@@ -80,5 +80,6 @@ public class SpringDamper
         SpringForce = (Fs + Fd) * direction;   //Set the 1Dimetional Velocity  back to 3 Dimention
 
         p1.AddForce(SpringForce);
+        p2.AddForce(SpringForce);
     }
 };             
