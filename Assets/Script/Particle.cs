@@ -57,7 +57,7 @@ public class SpringDamper
         p1 = Particle1;
         p2 = Particle2;
     }
-    Vector3 DamperForce(Particle p1,Particle p2) {
+    Vector3 DamperForce() {
         Vector3 eStar = p2.position - p1.position;
         float length = eStar.magnitude;
         return eStar / length;
@@ -75,11 +75,39 @@ public class SpringDamper
 
         float Fs = -Ks * (Lo - dist.magnitude);  //Spring Force liner
 
-        float Fd = -Kd * (velocity1DP1 = velocity1DP2);   //demping force liner
+        float Fd = -Kd * (velocity1DP1 - velocity1DP2);   //demping force liner
 
-        SpringForce = (Fs + Fd) * direction;   //Set the 1Dimetional Velocity  back to 3 Dimention
+        SpringForce = (Fs + Fd) * direction;   //Set the 1Dimetional Velocity back to 3 Dimention
 
         p1.AddForce(SpringForce);
         p2.AddForce(SpringForce);
     }
-};             
+
+};    
+
+public class Triangle {
+
+    public Triangle() { }
+    public Particle p1;
+    public Particle p2;
+    public Particle p3;
+    public Vector3 applicantVolocity; 
+
+    public Triangle(Particle particle1, Particle particle2, Particle particle3) {
+        p1 = particle1;
+        p2 = particle2;
+        p3 = particle3;
+        
+    }
+
+    public Vector3 AreodynamicVolocity() {
+        Vector3 response;
+        response = new Vector3((p1.position + p2.position + p3.position).x /3 ,(p1.position + 
+            p2.position + p3.position).y / 3,(p1.position + p2.position + p3.position).z / 3);
+        return response;
+    }
+
+    public void AreodynamicForce() {
+        
+    }
+}         
